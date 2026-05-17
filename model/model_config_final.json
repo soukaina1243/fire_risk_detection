@@ -1,0 +1,20 @@
+{
+  "auc_roc": 0.8449170124481328,
+  "avg_precision": 0.14816332898730417,
+  "threshold": 0.5700000000000001,
+  "features": [
+    "ndvi",
+    "temp_max_c",
+    "precip_mm",
+    "wind_speed",
+    "soil_moisture",
+    "pot_evap_mm",
+    "ndvi_anomaly",
+    "temp_roll3",
+    "precip_roll3",
+    "ndvi_roll3",
+    "hydric_deficit"
+  ],
+  "granularity": "regional_1deg",
+  "seq_len": 6
+}
