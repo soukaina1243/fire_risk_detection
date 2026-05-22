@@ -78,8 +78,8 @@ fire-risk-prediction/
 ├── reports/
 │   └── error_analysis_report_final.md   # Full error analysis report
 │
-├── notebook/
-│   └── fire_risk_prediction.ipynb       # Main Colab notebook (all phases)
+├── fire_risk_prediction.ipynb  # Main Colab notebook (all phases)
+│       
 │
 ├── .gitignore
 └── README.md
@@ -174,33 +174,6 @@ scipy
 2. Open the notebook in Google Colab
 3. Run the restoration cell at the top to reload all files from GitHub or Drive
 
-```python
-import os, shutil
-
-GITHUB_USERNAME = "your_username"
-GITHUB_TOKEN    = "your_token"
-GITHUB_REPO     = "fire-risk-prediction"
-
-if not os.path.exists('/content/fire_risk_dataset_raw.csv'):
-    os.system(f'git clone https://{GITHUB_USERNAME}:{GITHUB_TOKEN}'
-              f'@github.com/{GITHUB_USERNAME}/{GITHUB_REPO}.git')
-    for subdir in ['data','models','figures','reports','numpy_arrays']:
-        path = f'/content/{GITHUB_REPO}/{subdir}'
-        if os.path.exists(path):
-            for f in os.listdir(path):
-                shutil.copy2(f'{path}/{f}', f'/content/{f}')
-    print("Restored successfully")
-```
-
-### Saving Progress
-
-Run at the end of every session to push all files to GitHub:
-
-```python
-push_to_github("description of what you did")
-```
-
----
 
 ## Limitations
 
@@ -218,10 +191,3 @@ push_to_github("description of what you did")
 | Data fusion pipeline | `data/` + notebook Phase 1 | Full GEE extraction and merge logic |
 | Temporal modeling justification | Section 3 of report + notebook Phase 3 | LSTM choice, architecture, training |
 | Error analysis report | `reports/error_analysis_report_final.md` | FN/FP analysis, feature importance, threshold sensitivity |
-
----
-
-## Academic Context
-
-Project 3 — Fire Risk Prediction Using Satellite Time Series
-Deep Learning course — 2024/2025
